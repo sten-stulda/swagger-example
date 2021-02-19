@@ -1,0 +1,100 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API for store",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/store"
+        }
+    ],
+    "paths": {
+        "/sheets/order/{idOrder}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Get header information from order",
+                "operationId": "order",
+                "parameters": [
+                    {
+                        "name": "idOrder",
+                        "in": "path",
+                        "description": "Id order",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "520210218090"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Validation Response"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security": []
+                    }
+                ]
+            }
+        },
+        "/sheets/order/{idOrder}/items": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Get items information from order",
+                "operationId": "orderItems",
+                "parameters": [
+                    {
+                        "name": "idOrder",
+                        "in": "path",
+                        "description": "Id order",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "520210218090"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Validation Response"
+                    }
+                }
+            }
+        },
+        "/sheets/orders/{idOrder}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get header information from order",
+                "operationId": "orders",
+                "responses": {
+                    "200": {
+                        "description": "Validation Response"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "api_key_security": {
+                "type": "apiKey",
+                "description": "A short description for security scheme",
+                "name": "api_key",
+                "in": "header"
+            }
+        }
+    }
+}
